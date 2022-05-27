@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <title>Назва продукту</title>
+    <title>{{$item->name}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+    <link rel="icon" type="image/png" href="/public/images/icons/favicon.png"/>
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/vendor/bootstrap/css/bootstrap.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/fonts/iconic/css/material-design-iconic-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/fonts/linearicons-v1.0.0/icon-font.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/public/vendor/animate/animate.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/vendor/css-hamburgers/hamburgers.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/vendor/animsition/css/animsition.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/vendor/select2/select2.min.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="public/vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/slick/slick.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/MagnificPopup/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/MagnificPopup/magnific-popup.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/perfect-scrollbar/perfect-scrollbar.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
     <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -302,7 +302,7 @@
         </a>
 
         <span class="stext-109 cl4">
-				Мятний торт
+				{{$item->name}}
 			</span>
     </div>
 </div>
@@ -321,7 +321,7 @@
                         <div class="slick3 gallery-lb">
                             <div class="item-slick3" data-thumb="images/product-detail-01.jpg">
                                 <div class="wrap-pic-w pos-relative">
-                                    <img src="images/product-detail-01.jpg" alt="IMG-PRODUCT">
+                                    <img src="/storage/products_img/{{$item->img}}" alt="IMG-PRODUCT">
 
                                     <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-01.jpg">
                                         <i class="fa fa-expand"></i>
@@ -329,25 +329,7 @@
                                 </div>
                             </div>
 
-                            <div class="item-slick3" data-thumb="images/product-detail-02.jpg">
-                                <div class="wrap-pic-w pos-relative">
-                                    <img src="images/product-detail-02.jpg" alt="IMG-PRODUCT">
 
-                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-02.jpg">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="item-slick3" data-thumb="images/product-detail-03.jpg">
-                                <div class="wrap-pic-w pos-relative">
-                                    <img src="images/product-detail-03.jpg" alt="IMG-PRODUCT">
-
-                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="images/product-detail-03.jpg">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -356,15 +338,15 @@
             <div class="col-md-6 col-lg-5 p-b-30">
                 <div class="p-r-50 p-t-5 p-lr-0-lg">
                     <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                        Мятний торт
+                        {{$item->name}}
                     </h4>
 
                     <span class="mtext-106 cl2">
-							₴58.79
+							₴ {{$item->price}}
 						</span>
 
                     <p class="stext-102 cl3 p-t-23">
-                        Мятний торт зі полуничним кремом і бісквітними коржами.
+                        {{$item->description}}
                     </p>
 
                     <!--  -->
@@ -375,7 +357,7 @@
                             </div>
 
                             <div class="size-204 respon6-next">
-                                200 гр
+                                {{$item->mass}} гр
                             </div>
                         </div>
 
@@ -385,7 +367,7 @@
                             </div>
 
                             <div class="size-204 respon6-next">
-                                Борошно 120 гр, молоко 14 мл, мята 1 л., шоколад 30 гр.
+                                {{$item->sostav}}.
                             </div>
                         </div>
 
@@ -783,18 +765,18 @@
     })
 </script>
 <!--===============================================================================================-->
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<script src="/vendor/daterangepicker/moment.min.js"></script>
+<script src="/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/slick/slick.min.js"></script>
-<script src="js/slick-custom.js"></script>
+<script src="/vendor/slick/slick.min.js"></script>
+<script src="/js/slick-custom.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/parallax100/parallax100.js"></script>
+<script src="/vendor/parallax100/parallax100.js"></script>
 <script>
     $('.parallax100').parallax100();
 </script>
 <!--===============================================================================================-->
-<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+<script src="/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
 <script>
     $('.gallery-lb').each(function() { // the containers for all your galleries
         $(this).magnificPopup({
@@ -808,9 +790,9 @@
     });
 </script>
 <!--===============================================================================================-->
-<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="/vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
-<script src="vendor/sweetalert/sweetalert.min.js"></script>
+<script src="/vendor/sweetalert/sweetalert.min.js"></script>
 <script>
     $('.js-addwish-b2, .js-addwish-detail').on('click', function(e){
         e.preventDefault();
@@ -848,7 +830,7 @@
 
 </script>
 <!--===============================================================================================-->
-<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 <script>
     $('.js-pscroll').each(function(){
         $(this).css('position','relative');
@@ -865,7 +847,7 @@
     });
 </script>
 <!--===============================================================================================-->
-<script src="js/main.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>
