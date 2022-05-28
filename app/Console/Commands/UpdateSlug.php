@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Console\Commands;
+use App\Models\Category;
 use App\Models\Product;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Console\Command;
@@ -21,6 +22,8 @@ class UpdateSlug extends Command
                 $product->slug = SlugService::createSlug(Product::class, 'slug', $product->name);
                 $product->save();
             });
+
+
 
 
     }

@@ -536,26 +536,12 @@
                 <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
                     Всі продукти
                 </button>
-
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-                    Шоколад
+                @foreach($category as $cat)
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{$cat->id}}">
+                    {{$cat->title}}
                 </button>
+                @endforeach
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-                    Тістечка
-                </button>
-
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-                    Панкейки
-                </button>
-
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-                    Макаронс
-                </button>
-
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-                    Торти
-                </button>
             </div>
 
             <div class="flex-w flex-c-m m-tb-10">
@@ -632,7 +618,7 @@
 
 
             @foreach($products as $product)
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{$product->category_id}}">
                 <!-- Block2 -->
                 <div class="block2">
                     <div class="block2-pic hov-img0">
