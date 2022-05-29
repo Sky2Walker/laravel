@@ -578,42 +578,43 @@
                         </div>
 
                         <ul>
-                            <li class="p-b-6">
+                            <li class="p-b-6" data-order="default">
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    Стандартна
+                                    За замовчуванням
                                 </a>
                             </li>
 
-                            <li class="p-b-6">
+                            <li class="p-b-6" data-order="popular">
                                 <a href="#" class="filter-link stext-106 trans-04">
                                     Популярність
                                 </a>
                             </li>
 
-                            <li class="p-b-6">
+                            <li class="p-b-6" data-order="rait">
                                 <a href="#" class="filter-link stext-106 trans-04">
                                     Рейтингу
                                 </a>
                             </li>
 
-                            <li class="p-b-6">
+                            <li class="p-b-6" data-order="low-high">
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    Ціна: Дешевше до  Високої
+                                    Ціна: По зростанню
                                 </a>
                             </li>
 
-                            <li class="p-b-6">
+                            <li class="p-b-6" data-order="high-low">
                                 <a href="#" class="filter-link stext-106 trans-04">
-                                    Ціна: З високої до низької
+                                    Ціна:  По спаданню
                                 </a>
                             </li>
+
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="row isotope-grid">
+        <div class="row isotope-grid" id="product-grid">
 
 
 
@@ -829,6 +830,7 @@
 
 
 
+
 <!--===============================================================================================-->
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -956,6 +958,40 @@
 
 
 </script>
+
+
+
+
+<script>
+    $(document).ready(function (){
+        $('.p-b-6').click(function () {
+            let orderBy =$(this).data('order');
+
+
+            $.ajax({
+                url: "{{ route('home')}}"  ,
+                type: "GET",
+                data:{
+                    orderBy:orderBy
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    let positionParameters = location.pathname.indexOf('?');
+                    let url = location.pathname.substring(positionParameters,location.pathname.length);
+                    let newURL = url+'?';
+                    newURL += 'orderBy='+orderBy;
+                    history.pushState({},'',newURL);
+
+                    $('#product-grid').html(data);
+                }
+
+            });
+        })
+        })
+</script>
+
 
 </body>
 </html>
