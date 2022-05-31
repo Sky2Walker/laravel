@@ -654,6 +654,7 @@
         </div>
 
         <!-- Pagination -->
+
         <div class="flex-c-m flex-w w-full p-t-38">
             <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
                 1
@@ -662,6 +663,9 @@
             <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
                 2
             </a>
+
+           <!-- /*{{$products->appends(request()->query())->links()}} */-->
+
         </div>
     </div>
 </section>

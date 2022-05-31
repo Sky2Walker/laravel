@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(Request $request){
-        $products = Product::all();
+        $products = Product::paginate(12);
 
         if(isset($request->productId)){
             $product = Product::find($request->productId);
@@ -22,9 +22,9 @@ class HomeController extends Controller
 
         if(isset($request->orderBy)){
             if($request->orderBy=='low-high'){
-                $products = Product::orderBy('price')->get();
+                $products = Product::orderBy('price')->paginate(12);
             }if($request->orderBy=='high-low'){
-                $products = Product::orderBy('price','desc')->get();
+                $products = Product::orderBy('price','desc')->paginate(12);
             }
 
 
