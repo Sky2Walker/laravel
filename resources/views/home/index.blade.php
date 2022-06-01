@@ -25,21 +25,21 @@
                         </li>
 
                         <li>
-                            <a href="product.html">Магазин</a>
+                            <a href="/store">Магазин</a>
                         </li>
 
 
 
                         <li>
-                            <a href="blog.html">Блог</a>
+                            <a href="/blog">Блог</a>
                         </li>
 
                         <li>
-                            <a href="about.html">Про нас</a>
+                            <a href="/about">Про нас</a>
                         </li>
 
                         <li>
-                            <a href="contact.html">Звязатися с нами</a>
+                            <a href="/contact">Звязатися с нами</a>
                         </li>
                     </ul>
                 </div>
@@ -315,7 +315,7 @@
                 </div>
 
                 <div class="header-cart-buttons flex-w w-full">
-                    <a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+                    <a href="/cart" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
                         Переглянути кошик
                     </a>
 
