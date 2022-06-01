@@ -1060,6 +1060,34 @@
 <!--===============================================================================================-->
 <script src="/js/main.js"></script>
 
+
+
+<script>
+    //обращаемся к классу кнопки и вызываем обработчик при нажатии
+    $(document).on('click','.block2-btn' , function(){
+        // переменная в которой будет значение ИД кнопки на которую ты нажал
+        let productId = $(this).attr('id');
+        console.log(productId);
+
+
+        $.ajax({
+            url: "{{ route('home')}}"  ,
+            type: "GET",
+            data: {
+                productId: productId
+            },
+            success: function(data){
+
+                $('.show-modal1').find('.container').html(data);
+
+            }
+        });
+
+
+    });
+
+
+</script>
 </body>
 </html>
 
