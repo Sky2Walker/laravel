@@ -33,6 +33,7 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="/css/util.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -436,7 +437,7 @@
                 </li>
 
                 <li class="nav-item p-b-10">
-                    <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Відгуки (1)</a>
+                    <a class="nav-link" data-toggle="tab" href="#reviews" role="tab">Відгуки ({{count($reviews)}})</a>
                 </li>
             </ul>
 
@@ -496,6 +497,8 @@
                         <div class="col-sm-10 col-md-8 col-lg-6 m-lr-auto">
                             <div class="p-b-30 m-lr-15-sm">
                                 <!-- Review -->
+                                @if(!empty($reviews) && count($reviews) > 0)
+                                    @foreach($reviews as $review)
                                 <div class="flex-w flex-t p-b-68">
                                     <div class="wrap-pic-s size-109 bor0 of-hidden m-r-18 m-t-6">
                                         <img src="/images/avatar-01.jpg" alt="AVATAR">
@@ -504,30 +507,32 @@
                                     <div class="size-207">
                                         <div class="flex-w flex-sb-m p-b-17">
 													<span class="mtext-107 cl2 p-r-20">
-														Ariana Grande
+														{{$review->name}}
 													</span>
 
                                             <span class="fs-18 cl11">
+                                                @for($i=0;$i<$review->point;$i++)
 														<i class="zmdi zmdi-star"></i>
-														<i class="zmdi zmdi-star"></i>
-														<i class="zmdi zmdi-star"></i>
-														<i class="zmdi zmdi-star"></i>
-														<i class="zmdi zmdi-star-half"></i>
+                                                @endfor
+
 													</span>
                                         </div>
 
                                         <p class="stext-102 cl6">
-                                            Quod autem in homine praestantissimum atque optimum est, id deseruit. Apud ceteros autem philosophos
+                                           {{$review->text}}
                                         </p>
                                     </div>
                                 </div>
-
+                                @endforeach
+                                @endif
                                 <!-- Add review -->
-                                <form class="w-full" method="post">
+                                <form class="w-full" method="post" action="{{route("send.review", [$item->id])}}">
+                                    @csrf
                                     <h5 class="mtext-108 cl2 p-b-7">
                                         Додати відгук
                                     </h5>
 
+                                    @method('post')
                                     <p class="stext-102 cl6">
                                         Ваш е-мейл не буде опублікований. Обовязкові для заповнення поля позначені *
                                     </p>

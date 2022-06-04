@@ -20,8 +20,10 @@ Route::group([
         Route::get('','App\Http\Controllers\BlogController@blog');
     }
 );
+
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('/{cat}/{prod_id}', 'App\Http\Controllers\ProductController@getProduct');
+Route::post('/{prod_id}','App\Http\Controllers\ProductController@sendReview', )->name('send.review');
 Route::get('/store', 'App\Http\Controllers\StoreController@store');
 Route::get('/about','App\Http\Controllers\AboutUsController@about');
 Route::get('/contact','App\Http\Controllers\ContactUsController@contact');
