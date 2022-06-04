@@ -291,11 +291,13 @@
 
 
 <!-- Content page -->
+
 <section class="bg0 p-t-62 p-b-60">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-lg-9 p-b-80">
                 <div class="p-r-45 p-r-0-lg">
+                    @foreach($blogs as $blog)
                     <!-- item blog -->
                     <div class="p-b-63">
                         <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
@@ -315,32 +317,29 @@
                         <div class="p-t-32">
                             <h4 class="p-b-15">
                                 <a href="blog-detail.html" class="ltext-108 cl2 hov-cl1 trans-04">
-                                    9 Макарон
+                                    {{$blog->name}}
                                 </a>
                             </h4>
 
                             <p class="stext-117 cl6">
-                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius
+                                {{$blog->short_desc}}
                             </p>
 
                             <div class="flex-w flex-sb-m p-t-18">
 									<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
 										<span>
-											<span class="cl4">By</span> Admin
+											<span class="cl4">By</span> {{$blog->author}}
 											<span class="cl12 m-l-4 m-r-6">|</span>
 										</span>
 
-										<span>
-											Макарон, Кондитерство, Кулінарія
-											<span class="cl12 m-l-4 m-r-6">|</span>
-										</span>
+
 
 										<span>
 											8 Коментаріїв
 										</span>
 									</span>
 
-                                <a href="blog-detail.html" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+                                <a href="/blog/{{$blog->id}}" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
                                     Продовжити читати
 
                                     <i class="fa fa-long-arrow-right m-l-9"></i>
@@ -348,7 +347,7 @@
                             </div>
                         </div>
                     </div>
-
+                    @endforeach
                     <!-- item blog -->
 
 

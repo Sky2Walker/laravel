@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddCategoryIdToProductsTable extends Migration
+class AddPointToComProdTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddCategoryIdToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->bigInteger('category_id')->unsigned()->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+        Schema::table('com_prod', function (Blueprint $table) {
+            $table->integer('point');
         });
     }
 
@@ -26,7 +25,7 @@ class AddCategoryIdToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('com_prod', function (Blueprint $table) {
             //
         });
     }

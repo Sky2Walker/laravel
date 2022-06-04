@@ -523,7 +523,7 @@
                                 </div>
 
                                 <!-- Add review -->
-                                <form class="w-full">
+                                <form class="w-full" method="post">
                                     <h5 class="mtext-108 cl2 p-b-7">
                                         Додати відгук
                                     </h5>
@@ -538,11 +538,11 @@
 												</span>
 
                                         <span class="wrap-rating fs-18 cl11 pointer">
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
-													<i class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i data-raiting = "1" class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i data-raiting = "2" class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i data-raiting = "3" class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i data-raiting = "4" class="item-rating pointer zmdi zmdi-star-outline"></i>
+													<i data-raiting = "5 "class="item-rating pointer zmdi zmdi-star-outline"></i>
 													<input class="dis-none" type="number" name="rating">
                                         </span>
                                     </div>
@@ -1070,6 +1070,7 @@
         console.log(productId);
 
 
+
         $.ajax({
             url: "{{ route('home')}}"  ,
             type: "GET",
@@ -1088,6 +1089,18 @@
 
 
 </script>
+
+<script>
+    $(document).ready(function () {
+        $('.item-rating').click(function () {
+            let raiting =$(this).parent().find('input').val();
+            console.log(raiting);
+
+        });
+    })
+
+</script>
+
 </body>
 </html>
 
